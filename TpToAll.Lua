@@ -1,5 +1,5 @@
 -- LoopTp by PatchEyedkat
--- Great for using with Infinite Yield FlyFling, Make sure you have a Godmode Script unless you want to constantly keep dying
+-- To Use with Infinite Yield FlyFling, Make sure you have a Godmode Script unless you want to constantly keep dying
 
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
