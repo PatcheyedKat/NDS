@@ -1,5 +1,9 @@
+-- --------------------------------------------------------
 -- LoopTp by PatchEyedKat
 -- Great for using with Infinite Yield FlyFling
+
+-- Demo: https://imgur.com/a/SxI36M3
+-- --------------------------------------------------------
 
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
