@@ -11,7 +11,6 @@ local LocalPlayer = Players.LocalPlayer
 local teleporting = false
 local healConnection
 
--- Sound function
 local function playSound(soundId)
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://" .. tostring(soundId)
@@ -21,7 +20,6 @@ local function playSound(soundId)
     sound:Destroy()
 end
 
--- GUI Setup
 playSound(18892783765) -- Creation sound
 
 local screenGui = Instance.new("ScreenGui")
@@ -38,12 +36,10 @@ frame.Active = true
 frame.Draggable = true
 frame.Parent = screenGui
 
--- Round corners
 local uicorner = Instance.new("UICorner")
 uicorner.CornerRadius = UDim.new(0, 10)
 uicorner.Parent = frame
 
--- Title Label
 local title = Instance.new("TextLabel")
 title.Size = UDim2.new(1, 0, 0, 30)
 title.Position = UDim2.new(0, 0, 0, 0)
@@ -54,7 +50,6 @@ title.TextScaled = true
 title.Font = Enum.Font.GothamBold
 title.Parent = frame
 
--- Delete (Close) Button
 local closeBtn = Instance.new("TextButton")
 closeBtn.Size = UDim2.new(0, 20, 0, 20)
 closeBtn.Position = UDim2.new(1, -25, 0, 5)
@@ -65,7 +60,6 @@ closeBtn.Font = Enum.Font.SourceSansBold
 closeBtn.TextScaled = true
 closeBtn.Parent = frame
 
--- Toggle Button
 local button = Instance.new("TextButton")
 button.Size = UDim2.new(1, -20, 0, 40)
 button.Position = UDim2.new(0, 10, 0, 70)
@@ -77,12 +71,10 @@ button.BackgroundColor3 = Color3.fromRGB(200, 50, 50)
 button.BorderSizePixel = 0
 button.Parent = frame
 
--- Round corners for button
 local btnCorner = Instance.new("UICorner")
 btnCorner.CornerRadius = UDim.new(0, 8)
 btnCorner.Parent = button
 
--- Toggle invincibility
 local function enableInvincibility()
     local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
     local humanoid = character:FindFirstChildOfClass("Humanoid")
@@ -103,7 +95,6 @@ local function disableInvincibility()
     end
 end
 
--- Toggle teleporting and update button
 button.MouseButton1Click:Connect(function()
     teleporting = not teleporting
     if teleporting then
@@ -119,7 +110,6 @@ button.MouseButton1Click:Connect(function()
     end
 end)
 
--- Close button functionality: disable and cleanup
 closeBtn.MouseButton1Click:Connect(function()
     teleporting = false
     disableInvincibility()
@@ -127,7 +117,6 @@ closeBtn.MouseButton1Click:Connect(function()
     screenGui:Destroy()
 end)
 
--- Teleport function
 local function teleportToPlayer(targetPlayer)
     if targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") and
        LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
@@ -135,7 +124,6 @@ local function teleportToPlayer(targetPlayer)
     end
 end
 
--- Main loop
 spawn(function()
     while true do
         if teleporting then
